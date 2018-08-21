@@ -15,7 +15,7 @@ function getAll(req,res) {
 
 	productService.getAll()
 		.then((products) => {
-			res.send(products);
+			res.status(200).send(products);
 		})
 		.catch((err) => {
 			res.status(400).send(err);
@@ -37,9 +37,10 @@ function getProduct(req, res) {
 }
 
 function update(req, res) {
+	console.log(req.body);
 	productService.update(req.params._id, req.body)
 		.then(() => {
-			res.sendStatus(200);
+			res.sendStatus(204);
 		})
 		.catch((err) => {
 			res.status(400).send(err);

@@ -16,7 +16,6 @@ module.exports = service;
 
 function getAll() {
 	let deferred = Q.defer();
-	console.log(db);
 	db.products.find().toArray((err, products) => {
 		if (err) deferred.reject(err.name + ': ' + err.message);
 
